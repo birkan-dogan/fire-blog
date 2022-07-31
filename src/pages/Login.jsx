@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { signIn } from "../helpers/firebase";
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
-    // console.log(firstName, lastName);
+    signIn(email, password, navigate);
   };
   return (
     <div className="d-flex justify-content-center">

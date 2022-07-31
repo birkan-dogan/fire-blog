@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -21,6 +25,21 @@ const auth = getAuth(app);
 export const createUser = async (email, password, navigate) => {
   try {
     let userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    navigate("/");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// reading exist users in firebase-auth, and then we will call this function in Login page
+
+export const signIn = async (email, password, navigate) => {
+  try {
+    let userCredential = await signInWithEmailAndPassword(
       auth,
       email,
       password
