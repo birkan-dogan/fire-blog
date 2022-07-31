@@ -8,7 +8,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(firstName, lastName);
+    // console.log(firstName, lastName);
   };
   return (
     <div className="d-flex justify-content-center">

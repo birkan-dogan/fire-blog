@@ -49,3 +49,9 @@ body {
   background-color: #046582 !important;
   margin-left: 1.5rem;
 }
+.link {
+  color: #0b5ed7;
+  text-decoration: underline;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
