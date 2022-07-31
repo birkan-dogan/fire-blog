@@ -3,6 +3,9 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -22,13 +25,16 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // creating new user in firebase, and then we will call this function in Register page.
-export const createUser = async (email, password, navigate) => {
+export const createUser = async (email, password, navigate, displayName) => {
   try {
     let userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
+    await updateProfile(auth.currentUser, {
+      displayName: displayName,
+    });
     navigate("/");
   } catch (error) {
     console.log(error);
@@ -48,4 +54,21 @@ export const signIn = async (email, password, navigate) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+// to control user login or logout
+
+export const userObserver = (setCurrentUser) => {
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    } else {
+      setCurrentUser(false);
+    }
+  });
+};
+
+export const logOut = () => {
+  signOut(auth);
 };

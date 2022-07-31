@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import img from "../assets/blogging.png";
+import { AuthContext } from "../contexts/AuthContext";
+import { logOut } from "../helpers/firebase";
+
 const Navbar = () => {
   const navigate = useNavigate();
-  const currentUser = false;
+  const { currentUser } = useContext(AuthContext);
+  // console.log(currentUser);
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
@@ -22,7 +26,12 @@ const Navbar = () => {
                 <h5 className="mb-0  text-capitalize">
                   {currentUser.displayName}
                 </h5>
-                <button className="ms-2 btn btn-outline-light">Log Out</button>
+                <button
+                  className="ms-2 btn btn-outline-light"
+                  onClick={() => logOut()}
+                >
+                  Log Out
+                </button>
               </>
             ) : (
               <>
