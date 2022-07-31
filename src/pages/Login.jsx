@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { signIn } from "../helpers/firebase";
+import { signIn, signUpProvider } from "../helpers/firebase";
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -9,6 +9,9 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     signIn(email, password, navigate);
+  };
+  const handleProvider = () => {
+    signUpProvider(navigate);
   };
   return (
     <div className="d-flex justify-content-center">
@@ -51,7 +54,10 @@ const Login = () => {
             value="Login"
           />
         </form>
-        <button className="btn text-white form-control">
+        <button
+          className="btn text-white form-control"
+          onClick={handleProvider}
+        >
           <AiOutlineGoogle
             style={{ marginRight: "1rem", transform: "scale(1.7)" }}
           />
