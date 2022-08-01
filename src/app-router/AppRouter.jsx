@@ -5,10 +5,11 @@ import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
 import Details from "../pages/Details";
 import Login from "../pages/Login";
+import Profile from "../pages/Profile";
 import NewBlog from "../pages/NewBlog";
 import Register from "../pages/Register";
 import UpdateBlog from "../pages/UpdateBlog";
-
+import PrivateRouter from "./PrivateRouter";
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -17,11 +18,21 @@ const AppRouter = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/:id" element={<Details />} />
-        <Route path="/newblog" element={<NewBlog />} />
-        <Route path="/profile" element={<NewBlog />} />
-        <Route path="/updateBlog" element={<UpdateBlog />} />
+        <Route path="/about" element={<PrivateRouter />}>
+          <Route path="" element={<About />} />
+        </Route>
+        <Route path="/details/:id" element={<PrivateRouter />}>
+          <Route path="" element={<Details />} />
+        </Route>
+        <Route path="/newblog" element={<PrivateRouter />}>
+          <Route path="" element={<NewBlog />} />
+        </Route>
+        <Route path="/profile" element={<PrivateRouter />}>
+          <Route path="" element={<Profile />} />
+        </Route>
+        <Route path="/updateBlog" element={<PrivateRouter />}>
+          <Route path="" element={<UpdateBlog />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
