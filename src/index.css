@@ -66,3 +66,46 @@ body {
 .new:hover {
   transform: scale(0.9);
 }
+.new-img {
+  background-color: #046582;
+  border-radius: 9rem;
+  transform: scale(0.8);
+  padding: 1.5rem 0;
+}
+.new-container-big {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.new-container {
+  padding: 0rem 1.5rem;
+  background-color: #046582;
+  height: 5px;
+}
+.new-blog {
+  color: #046582;
+  font-family: sans-serif;
+}
+
+.form {
+  padding: 1rem;
+  padding-left: 2rem;
+}
+.form input {
+  padding: 0.5rem;
+  width: 25rem;
+  border: 3px solid #ccc;
+}
+.form textarea {
+  resize: none;
+  padding: 0.5rem;
+  border: 3px solid #ccc;
+}
+.form input:focus {
+  border: 3px solid #046582;
+}
+.buton {
+  text-align: center;
+  margin-bottom: 5rem;
+  margin-left: 11rem;
+}

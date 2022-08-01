@@ -11,14 +11,16 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
-        <div className="container-fluid">
+        <div className="container-fluid ">
           <Link to={"/"}>
-            <img src={img} alt="" style={{ width: "5rem" }} />
+            <img src={img} alt="" style={{ width: "3.5rem" }} />
           </Link>
           <Link to={"/"} className="navbar-brand text-white">
-            <div className="empty-div"></div>
-            <h4>Fire-Blog</h4>
-            <div className="empty-div"></div>
+            <div style={{ marginLeft: "10rem" }}>
+              <div className="empty-div"></div>
+              <h4>Fire-Blog</h4>
+              <div className="empty-div"></div>
+            </div>
           </Link>
           <div className="d-flex text-white align-items-center">
             {currentUser ? (

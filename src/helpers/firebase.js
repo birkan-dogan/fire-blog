@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { getDatabase, push, ref, set } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -85,4 +86,24 @@ export const signUpProvider = (navigate) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+// crud operations for creating, reading, updating and deleting a blog content
+
+// create process
+
+export const AddBlog = (blog, navigate) => {
+  const db = getDatabase(app);
+  const contentRef = ref(db, "blog/");
+  const newContentRef = push(contentRef);
+  try {
+    set(newContentRef, {
+      title: blog.title,
+      imageUrl: blog.imageUrl,
+      content: blog.content,
+    });
+    navigate("/");
+  } catch (error) {
+    console.log(error);
+  }
 };
