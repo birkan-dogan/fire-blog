@@ -55,3 +55,14 @@ body {
   margin-left: 1.5rem;
   cursor: pointer;
 }
+.new {
+  box-shadow: 1px 1px 10px 1px grey;
+  padding: 0.5rem;
+  transition: all 0.5s;
+  position: fixed;
+  top: 7rem;
+  right: 1rem;
+}
+.new:hover {
+  transform: scale(0.9);
+}

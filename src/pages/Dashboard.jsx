@@ -1,7 +1,9 @@
+import NewBlogCreate from "../components/NewBlogCreate";
+
 const Dashboard = () => {
   return (
     <div>
-      <h1>dashboard</h1>
+      <NewBlogCreate />
     </div>
   );
 };
