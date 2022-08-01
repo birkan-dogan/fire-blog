@@ -9,7 +9,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { getDatabase, push, ref, set } from "firebase/database";
+import { getDatabase, onValue, push, ref, set } from "firebase/database";
+import { useEffect, useState } from "react";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -106,4 +107,25 @@ export const AddBlog = (blog, navigate) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+// read process
+
+export const useFetch = () => {
+  const [isloading, setIsLoading] = useState();
+  const [blogList, setBlogList] = useState();
+  useEffect(() => {
+    const db = getDatabase(app);
+    const contentRef = ref(db, "blog/");
+    onValue(contentRef, (snapshot) => {
+      const data = snapshot.val();
+      const blogArray = [];
+      for (let id in data) {
+        blogArray.push({ id, ...data[id] }); // it is pushing data into blogArray
+      }
+      setBlogList(blogArray);
+      setIsLoading(false);
+    });
+  }, []);
+  return { isloading, blogList };
 };
