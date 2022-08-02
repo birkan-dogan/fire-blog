@@ -9,7 +9,14 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { getDatabase, onValue, push, ref, set } from "firebase/database";
+import {
+  getDatabase,
+  onValue,
+  push,
+  ref,
+  remove,
+  set,
+} from "firebase/database";
 import { useEffect, useState } from "react";
 
 const firebaseConfig = {
@@ -128,4 +135,12 @@ export const FetchData = (setCurrentBlog, setIsLoading) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+// delete process
+export const DeleteBlog = (id, navigate) => {
+  const db = getDatabase(app);
+  const contentRef = ref(db, "blog/");
+  remove(ref(db, "blog/" + id));
+  navigate("/");
 };

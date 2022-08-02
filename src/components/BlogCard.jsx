@@ -8,9 +8,7 @@ const BlogCard = ({ blog }) => {
   const navigate = useNavigate();
   const { content, imageUrl, title, id } = blog;
   const handleBlog = () => {
-    currentUser
-      ? navigate(`details/${id}`, { state: blog })
-      : navigate("/login");
+    currentUser ? navigate(`details/${id}`) : navigate("/login");
   };
   return (
     <article className="blog-card" onClick={handleBlog}>

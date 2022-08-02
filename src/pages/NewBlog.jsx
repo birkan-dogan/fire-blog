@@ -8,7 +8,6 @@ const initialValues = {
   imageUrl: "",
   content: "",
   currentUser: "",
-  date: "",
 };
 
 const NewBlog = () => {
@@ -22,8 +21,7 @@ const NewBlog = () => {
     setBlog({
       ...blog,
       [name]: value,
-      currentUser: currentUser.displayName,
-      date: new Date(),
+      currentUser: currentUser.email,
     });
   };
 

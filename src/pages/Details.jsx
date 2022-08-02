@@ -1,24 +1,59 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
-import { useFetch } from "../helpers/firebase";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import loading from "../assets/loading.gif";
+import { AuthContext } from "../contexts/AuthContext";
+import { BlogContext } from "../contexts/BlogContext";
+import { DeleteBlog } from "../helpers/firebase";
 
 const Details = () => {
-  const [filtered, setFiltered] = useState();
-  // const { isLoading, blogList } = useFetch();
-
-  // const { id } = useParams();
-  const location = useLocation();
-  const blog = location.state;
-
+  const [blog, setBlog] = useState();
+  const { id } = useParams();
+  const { currentUser } = useContext(AuthContext);
+  const { currentBlog, isLoading } = useContext(BlogContext);
+  // console.log(currentUser);
+  const navigate = useNavigate();
+  const getData = () => {
+    setBlog(currentBlog.filter((item) => item.id === id));
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+  console.log(blog);
+  // console.log(blog[0]?.currentUser);
   return (
-    <div className="details">
-      <h1>──── Details ────</h1>
-      <div className="details-content">
-        <img src={blog.imageUrl} alt={blog.title} />
-        <h3>{blog.title.toUpperCase()}</h3>
-        <p>{blog.content}</p>
-      </div>
+    <div>
+      {isLoading ? (
+        <div className="spinner">
+          <img src={loading} alt="loading" />
+        </div>
+      ) : (
+        <div className="details">
+          <h1>──── Details ────</h1>
+          {blog?.map((item) => {
+            return (
+              <div className="details-content" key={item.id}>
+                <img src={item.imageUrl} alt={item.title} />
+                <h3>{item.title}</h3>
+                <p>{item.content}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      {blog?.map(
+        (item) =>
+          item.currentUser === currentUser.email && (
+            <div className="d-flex mb-5 gap-5 justify-content-center details-button">
+              <button className="btn text-white">Update Blog</button>
+              <button
+                className="btn bg-danger text-white"
+                onClick={() => DeleteBlog(item.id, navigate)}
+              >
+                Delete Blog
+              </button>
+            </div>
+          )
+      )}
     </div>
   );
 };
