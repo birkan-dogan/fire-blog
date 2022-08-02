@@ -10,19 +10,20 @@ import NewBlog from "../pages/NewBlog";
 import Register from "../pages/Register";
 import UpdateBlog from "../pages/UpdateBlog";
 import PrivateRouter from "./PrivateRouter";
+import BlogContextProvider from "../contexts/BlogContext";
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/details/:id" element={<PrivateRouter />}>
+          <Route path="" element={<Details />} />
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<PrivateRouter />}>
           <Route path="" element={<About />} />
-        </Route>
-        <Route path="/details/:id" element={<PrivateRouter />}>
-          <Route path="" element={<Details />} />
         </Route>
         <Route path="/newblog" element={<PrivateRouter />}>
           <Route path="" element={<NewBlog />} />

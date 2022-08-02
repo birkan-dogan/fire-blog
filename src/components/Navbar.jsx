@@ -8,6 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   // console.log(currentUser);
+  // console.log(currentUser.providerData[0].uid);
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
@@ -18,7 +19,7 @@ const Navbar = () => {
           <Link to={"/"} className="navbar-brand text-white">
             <div style={{ marginLeft: "10rem" }}>
               <div className="empty-div"></div>
-              <h4>Fire-Blog</h4>
+              <h4 style={{ letterSpacing: ".5rem" }}>Fire-Blog</h4>
               <div className="empty-div"></div>
             </div>
           </Link>

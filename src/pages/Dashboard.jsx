@@ -3,8 +3,11 @@ import { useFetch } from "../helpers/firebase";
 import loading from "../assets/loading.gif";
 import nodata from "../assets/no-data.png";
 import BlogCard from "../components/BlogCard";
+import { useContext } from "react";
+import { BlogContext } from "../contexts/BlogContext";
 const Dashboard = () => {
-  const { isLoading, blogList } = useFetch();
+  // const { isLoading, blogList } = useFetch();
+  const { currentBlog, isLoading } = useContext(BlogContext);
   return (
     <div>
       <NewBlogCreate />
@@ -13,12 +16,12 @@ const Dashboard = () => {
           <div className="spinner">
             <img src={loading} alt="loading" />
           </div>
-        ) : blogList?.length === 0 ? (
+        ) : currentBlog?.length === 0 ? (
           <div className="no-data">
             <img src={nodata} alt="" />
           </div>
         ) : (
-          blogList?.map((blog) => <BlogCard blog={blog} id={blog.id} />)
+          currentBlog?.map((blog) => <BlogCard blog={blog} key={blog.id} />)
         )}
       </main>
     </div>

@@ -1,20 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import blok from "../assets/blok.png";
+import { AuthContext } from "../contexts/AuthContext";
 import { AddBlog } from "../helpers/firebase";
 const initialValues = {
   title: "",
   imageUrl: "",
   content: "",
+  currentUser: "",
+  date: "",
 };
+
 const NewBlog = () => {
+  const { currentUser } = useContext(AuthContext);
   const [blog, setBlog] = useState(initialValues);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    setBlog({ ...blog, [name]: value });
+    setBlog({
+      ...blog,
+      [name]: value,
+      currentUser: currentUser.displayName,
+      date: new Date(),
+    });
   };
 
   const handleSubmit = (e) => {

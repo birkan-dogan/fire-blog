@@ -102,6 +102,7 @@ export const AddBlog = (blog, navigate) => {
       title: blog.title,
       imageUrl: blog.imageUrl,
       content: blog.content,
+      currentUser: blog.currentUser,
     });
     navigate("/");
   } catch (error) {
@@ -111,21 +112,20 @@ export const AddBlog = (blog, navigate) => {
 
 // read process
 
-export const useFetch = () => {
-  const [isloading, setIsLoading] = useState();
-  const [blogList, setBlogList] = useState();
-  useEffect(() => {
-    const db = getDatabase(app);
-    const contentRef = ref(db, "blog/");
+export const FetchData = (setCurrentBlog, setIsLoading) => {
+  const db = getDatabase(app);
+  const contentRef = ref(db, "blog/");
+  try {
     onValue(contentRef, (snapshot) => {
       const data = snapshot.val();
       const blogArray = [];
       for (let id in data) {
         blogArray.push({ id, ...data[id] }); // it is pushing data into blogArray
       }
-      setBlogList(blogArray);
+      setCurrentBlog(blogArray);
       setIsLoading(false);
     });
-  }, []);
-  return { isloading, blogList };
+  } catch (error) {
+    console.log(error);
+  }
 };
