@@ -61,8 +61,8 @@ body {
   padding: 0.5rem;
   transition: all 0.5s;
   position: fixed;
-  bottom: 3rem;
-  right: 1rem;
+  top: 6rem;
+  right: 2rem;
   background-color: #1da1f2;
   border-radius: 1rem;
 }
@@ -150,7 +150,7 @@ main {
 }
 .blog-card h1 {
   text-align: center;
-  color: #046582;
+  color: crimson;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
@@ -186,10 +186,13 @@ main {
   height: 500px;
   margin: 1rem;
   object-fit: contain;
+  box-shadow: 1px 1px 5px 1px #046582;
+  padding: 1rem;
 }
 .details-content h3 {
   margin-top: 2rem;
   color: crimson;
+  font-size: 3rem;
 }
 .details-content p {
   padding: 2rem;
@@ -209,4 +212,27 @@ main {
 }
 .delete {
   background-color: crimson !important;
+}
+.name-link {
+  text-decoration: none;
+  color: #eeeeee;
+}
+.name-link:hover {
+  color: #ccc;
+}
+.profile-div {
+  width: 100vw;
+  text-align: center;
+}
+.profile {
+  margin-top: 5rem;
+  background-color: #efeefe;
+  padding: 2rem;
+}
+.profile-icon {
+  transform: scale(4);
+  margin: 2rem;
+}
+.profile h1 {
+  text-transform: capitalize;
 }

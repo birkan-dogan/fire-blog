@@ -27,7 +27,9 @@ const Navbar = () => {
             {currentUser ? (
               <>
                 <h5 className="mb-0  text-capitalize">
-                  {currentUser.displayName}
+                  <Link to={"/profile"} className="name-link">
+                    {currentUser.displayName}
+                  </Link>
                 </h5>
                 <button
                   className="ms-2 btn btn-outline-light"
