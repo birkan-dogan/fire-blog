@@ -35,9 +35,7 @@ const NewBlog = () => {
       <div>
         <img src={blok} alt="newBlog" className="new-img" />
         <div className="new-container-big">
-          <div className="new-container"></div>
-          <h1 className="new-blog text-center">New Blog</h1>
-          <div className="new-container"></div>
+          <h1 className="new-blog text-center">── New Blog ──</h1>
         </div>
       </div>
       <form className="form-div" onSubmit={handleSubmit}>

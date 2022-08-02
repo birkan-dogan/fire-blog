@@ -11,6 +11,7 @@ const Dashboard = () => {
   return (
     <div>
       <NewBlogCreate />
+      <h1 className="dashboard">──── Dashboard ────</h1>
       <main>
         {isLoading ? (
           <div className="spinner">

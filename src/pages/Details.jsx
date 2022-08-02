@@ -20,7 +20,7 @@ const Details = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(blog);
+  // console.log(blog);
   // console.log(blog[0]?.currentUser);
   return (
     <div>
@@ -33,10 +33,12 @@ const Details = () => {
           <h1>──── Details ────</h1>
           {blog?.map((item) => {
             return (
-              <div className="details-content" key={item.id}>
+              <div className="details-content d-flex" key={item.id}>
                 <img src={item.imageUrl} alt={item.title} />
-                <h3>{item.title}</h3>
-                <p>{item.content}</p>
+                <div className="content-div">
+                  <h3>{item.title.toUpperCase()}</h3>
+                  <p>{item.content}</p>
+                </div>
               </div>
             );
           })}
@@ -56,7 +58,7 @@ const Details = () => {
                 Update Blog
               </button>
               <button
-                className="btn bg-danger text-white"
+                className="btn bg-danger text-white delete"
                 onClick={() => DeleteBlog(item.id, navigate)}
               >
                 Delete Blog

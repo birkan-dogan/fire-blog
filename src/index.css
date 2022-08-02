@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Girassol&display=swap");
 
 * {
   box-sizing: border-box;
@@ -60,9 +61,10 @@ body {
   padding: 0.5rem;
   transition: all 0.5s;
   position: fixed;
-  top: 7rem;
-  right: 0.1rem;
-  background-color: coral;
+  bottom: 3rem;
+  right: 1rem;
+  background-color: #1da1f2;
+  border-radius: 1rem;
 }
 .new:hover {
   transform: scale(0.9);
@@ -85,7 +87,7 @@ body {
 }
 .new-blog {
   color: #046582;
-  font-family: sans-serif;
+  font-family: "Girassol", cursive;
 }
 
 .form {
@@ -94,7 +96,7 @@ body {
 }
 .form input {
   padding: 0.5rem;
-  width: 25rem;
+  width: 27.5rem;
   border: 3px solid #ccc;
 }
 .form textarea {
@@ -102,21 +104,24 @@ body {
   padding: 0.5rem;
   border: 3px solid #ccc;
 }
-.form input:focus {
-  border: 3px solid #046582;
-}
+
 .buton {
   text-align: center;
   margin-bottom: 5rem;
   margin-left: 11rem;
 }
+.dashboard {
+  text-align: center;
+  margin-top: 2rem;
+  color: #046582;
+  font-family: "Girassol", cursive;
+  font-size: 3rem;
+}
 main {
-  padding: 1rem;
-  display: grid;
-  /* grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 10fr); */
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   min-height: 100vh;
 }
 .blog-card {
@@ -124,7 +129,7 @@ main {
   height: 500px;
   overflow: hidden;
   box-shadow: 1px 1px 5px 1px grey;
-  margin: auto;
+  margin: 3rem 1rem;
   margin-bottom: 1rem;
   cursor: pointer;
   transition: all 0.5s;
@@ -165,13 +170,16 @@ main {
 }
 .details h1 {
   color: #046582;
+  font-family: "Girassol", cursive;
+  margin-top: 1rem;
 }
 .details-content {
   background-color: #efeefe;
   margin: 1rem 5rem;
   min-height: 70vh;
   padding: 1rem;
-  width: 700px;
+  width: 90vw;
+  box-shadow: 1px 1px 10px 1px grey;
 }
 .details-content img {
   width: 500px;
@@ -181,7 +189,7 @@ main {
 }
 .details-content h3 {
   margin-top: 2rem;
-  color: #046582;
+  color: crimson;
 }
 .details-content p {
   padding: 2rem;
@@ -190,7 +198,15 @@ main {
   text-align: justify;
   text-indent: 1rem;
 }
+.content-div {
+  height: 70vh;
+  width: 45vw;
+  overflow: auto;
+}
 .spinner {
   text-align: center;
   width: 100vw;
+}
+.delete {
+  background-color: crimson !important;
 }

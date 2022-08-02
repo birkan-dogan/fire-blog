@@ -12,7 +12,7 @@ const NewBlogCreate = () => {
   return (
     <nav>
       <div
-        className="d-flex flex-column align-items-center new "
+        className="d-flex flex-column align-items-center text-white new "
         style={{ cursor: "pointer" }}
         onClick={handleBlog}
       >
