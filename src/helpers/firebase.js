@@ -16,6 +16,7 @@ import {
   ref,
   remove,
   set,
+  update,
 } from "firebase/database";
 import { useEffect, useState } from "react";
 
@@ -143,4 +144,13 @@ export const DeleteBlog = (id, navigate) => {
   const contentRef = ref(db, "blog/");
   remove(ref(db, "blog/" + id));
   navigate("/");
+};
+
+// update process
+
+export const updateBlog = (blog) => {
+  const db = getDatabase(app);
+  const updates = {};
+  updates["blog/" + blog.id] = blog;
+  return update(ref(db), updates);
 };

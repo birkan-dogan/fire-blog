@@ -4,6 +4,7 @@ import loading from "../assets/loading.gif";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { DeleteBlog } from "../helpers/firebase";
+import UpdateBlog from "./UpdateBlog";
 
 const Details = () => {
   const [blog, setBlog] = useState();
@@ -15,6 +16,7 @@ const Details = () => {
   const getData = () => {
     setBlog(currentBlog.filter((item) => item.id === id));
   };
+
   useEffect(() => {
     getData();
   }, []);
@@ -43,8 +45,16 @@ const Details = () => {
       {blog?.map(
         (item) =>
           item.currentUser === currentUser.email && (
-            <div className="d-flex mb-5 gap-5 justify-content-center details-button">
-              <button className="btn text-white">Update Blog</button>
+            <div
+              className="d-flex mb-5 gap-5 justify-content-center details-button"
+              key={item.id}
+            >
+              <button
+                className="btn text-white"
+                onClick={() => navigate(`/updateBlog/${id}`)}
+              >
+                Update Blog
+              </button>
               <button
                 className="btn bg-danger text-white"
                 onClick={() => DeleteBlog(item.id, navigate)}
