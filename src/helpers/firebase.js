@@ -111,6 +111,8 @@ export const AddBlog = (blog, navigate) => {
       imageUrl: blog.imageUrl,
       content: blog.content,
       currentUser: blog.currentUser,
+      like: false,
+      likeNumber: 0,
     });
     navigate("/");
   } catch (error) {
