@@ -111,6 +111,7 @@ body {
   color: #046582;
   font-family: "Girassol", cursive;
   font-size: 3rem;
+  margin-right: 2rem;
 }
 main {
   display: flex;
@@ -245,6 +246,30 @@ main {
   position: relative;
   top: 1rem;
   left: 2rem;
+}
+.footer {
+  background: #046582;
+  text-align: center;
+  padding: 10px;
+  margin-top: 100px;
+  /* bottom: 0px; */
+}
+
+.socialMedia svg {
+  color: white;
+  margin: 15px;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.footer p {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer svg {
+    font-size: 70px;
+  }
 }
 @media (max-width: 582px) {
   .details-content img {
