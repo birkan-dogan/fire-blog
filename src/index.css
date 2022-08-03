@@ -13,11 +13,6 @@ body {
 .navbar {
   background-color: #046582 !important;
 }
-.empty-div {
-  background-color: #f3f3f3;
-  padding: 2px;
-  background-color: #eed71d;
-}
 .form-image {
   min-width: 800px;
   min-height: 800px;
@@ -61,7 +56,7 @@ body {
   padding: 0.5rem;
   transition: all 0.5s;
   position: fixed;
-  top: 6rem;
+  top: 12rem;
   right: 2rem;
   background-color: #1da1f2;
   border-radius: 1rem;
@@ -196,7 +191,7 @@ main {
 }
 .details-content p {
   padding: 2rem;
-  width: 600px;
+  width: 650px;
   overflow: auto;
   text-align: justify;
   text-indent: 1rem;
@@ -235,4 +230,59 @@ main {
 }
 .profile h1 {
   text-transform: capitalize;
+}
+.toSee {
+  margin: 1rem;
+  color: purple;
+  letter-spacing: 2px;
+}
+.dropdown {
+  margin-right: 1rem;
+}
+.fire-blog {
+  color: #046582;
+  font-size: 2.5rem;
+  position: relative;
+  top: 1rem;
+  left: 2rem;
+}
+@media (max-width: 582px) {
+  .details-content img {
+    width: 350px;
+  }
+  .details-content p {
+    width: 340px;
+  }
+}
+@media (max-width: 586px) {
+  .details-content img {
+    width: 250px;
+  }
+  .details-content {
+    margin: 0.5rem;
+  }
+  .details-content p {
+    width: 200px;
+    padding: 0rem;
+    /* margin: ; */
+    text-indent: 1rem;
+    /* text-align: justify; */
+  }
+  .details-content h3 {
+    margin-top: 0.5rem;
+    color: crimson;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .navbar-h1 {
+    margin-left: 1rem;
+  }
+}
+@media (max-width: 750px) {
+  .fire-blog {
+    display: none;
+  }
+  .dashboard {
+    font-size: 1.5rem;
+  }
 }

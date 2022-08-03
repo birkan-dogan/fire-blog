@@ -10,54 +10,151 @@ const Navbar = () => {
   // console.log(currentUser);
   // console.log(currentUser.providerData[0].uid);
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg">
-        <div className="container-fluid ">
+    // <div>
+    //   <nav className="navbar navbar-expand-lg">
+    //     <div className="container-fluid ">
+    //       <Link to={"/"}>
+    //         <img
+    //           src={img}
+    //           alt=""
+    //           style={{ width: "3.5rem" }}
+    //           className="link-image"
+    //         />
+    //       </Link>
+    //       <Link to={"/"} className="navbar-brand text-white">
+    //         <div style={{ marginLeft: "10rem" }}>
+    //           <div className="empty-div"></div>
+    //           <h4 style={{ letterSpacing: ".5rem" }}>Fire-Blog</h4>
+    //           <div className="empty-div"></div>
+    //         </div>
+    //       </Link>
+    //       <div className="d-flex text-white align-items-center">
+    //         {currentUser ? (
+    //           <>
+    //             <h5 className="mb-0  text-capitalize">
+    //               <Link to={"/profile"} className="name-link">
+    //                 {currentUser.displayName}
+    //               </Link>
+    //             </h5>
+    //             <button
+    //               className="ms-2 btn btn-outline-light"
+    //               onClick={() => logOut()}
+    //             >
+    //               Log Out
+    //             </button>
+    //           </>
+    //         ) : (
+    //           <>
+    //             <button
+    //               className="ms-2 btn btn-outline-light"
+    //               onClick={() => navigate("/login")}
+    //             >
+    //               Log In
+    //             </button>
+    //             <button
+    //               className="ms-2 btn btn-outline-light"
+    //               onClick={() => navigate("/register")}
+    //             >
+    //               Register
+    //             </button>
+    //           </>
+    //         )}
+    //       </div>
+    //     </div>
+    //   </nav>
+    // </div>
+    <nav className="navbar navbar-expand-lg bg-light">
+      <div className="container-fluid d-flex ">
+        <div>
           <Link to={"/"}>
-            <img src={img} alt="" style={{ width: "3.5rem" }} />
+            <img
+              src={img}
+              alt=""
+              style={{ width: "4rem" }}
+              className="navbar-brand link-image"
+            />
           </Link>
-          <Link to={"/"} className="navbar-brand text-white">
-            <div style={{ marginLeft: "10rem" }}>
-              <div className="empty-div"></div>
-              <h4 style={{ letterSpacing: ".5rem" }}>Fire-Blog</h4>
-              <div className="empty-div"></div>
+
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+        </div>
+        <div>
+          <Link to={"/"} className="navbar-brand">
+            <div>
+              <h4 style={{ letterSpacing: ".5rem" }} className="fire-blog">
+                Fire-Blog
+              </h4>
             </div>
           </Link>
-          <div className="d-flex text-white align-items-center">
-            {currentUser ? (
-              <>
-                <h5 className="mb-0  text-capitalize">
-                  <Link to={"/profile"} className="name-link">
-                    {currentUser.displayName}
-                  </Link>
-                </h5>
-                <button
-                  className="ms-2 btn btn-outline-light"
-                  onClick={() => logOut()}
-                >
-                  Log Out
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  className="ms-2 btn btn-outline-light"
-                  onClick={() => navigate("/login")}
-                >
-                  Log In
-                </button>
-                <button
-                  className="ms-2 btn btn-outline-light"
-                  onClick={() => navigate("/register")}
-                >
-                  Register
-                </button>
-              </>
-            )}
-          </div>
         </div>
-      </nav>
-    </div>
+        <div>
+          {currentUser ? (
+            <div
+              className="collapse navbar-collapse dropdown"
+              id="navbarNavDropdown"
+            >
+              <ul className="navbar-nav">
+                <li className="nav-item dropdown">
+                  <h1
+                    className="nav-link dropdown-toggle"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    {currentUser.displayName}
+                  </h1>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <Link className="dropdown-item" to={"/newblog"}>
+                        New Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to={"/profile"}>
+                        Profile
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        className="dropdown-item"
+                        to={"/login"}
+                        onClick={() => logOut()}
+                      >
+                        Log Out
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <>
+              <button
+                className="ms-2 btn btn-outline-light"
+                onClick={() => navigate("/login")}
+              >
+                Log In
+              </button>
+              <button
+                className="ms-2 btn btn-outline-light"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </nav>
   );
 };
 
