@@ -18,7 +18,11 @@ import {
   set,
   update,
 } from "firebase/database";
-import { useEffect, useState } from "react";
+import {
+  toastSuccessNotify,
+  toastErrorNotify,
+  toastWarnNotify,
+} from "../helpers/toastNotify";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -48,8 +52,10 @@ export const createUser = async (email, password, navigate, displayName) => {
       displayName: displayName,
     });
     navigate("/");
+    toastSuccessNotify("Registered Successfully");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    toastErrorNotify(error.message);
   }
 };
 
@@ -64,7 +70,7 @@ export const signIn = async (email, password, navigate) => {
     );
     navigate("/");
   } catch (error) {
-    console.log(error);
+    toastErrorNotify(error.message);
   }
 };
 
@@ -83,6 +89,7 @@ export const userObserver = (setCurrentUser) => {
 
 export const logOut = () => {
   signOut(auth);
+  toastSuccessNotify("Log out ");
 };
 
 export const signUpProvider = (navigate) => {
@@ -91,9 +98,11 @@ export const signUpProvider = (navigate) => {
     .then((result) => {
       // console.log(result);
       navigate("/");
+      toastSuccessNotify("Registered Successfully");
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
+      toastErrorNotify(error.message);
     });
 };
 
@@ -115,8 +124,10 @@ export const AddBlog = (blog, navigate) => {
       likeNumber: 0,
     });
     navigate("/");
+    toastSuccessNotify("New Blog is created");
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    toastErrorNotify(error.message);
   }
 };
 
@@ -142,17 +153,26 @@ export const FetchData = (setCurrentBlog, setIsLoading) => {
 
 // delete process
 export const DeleteBlog = (id, navigate) => {
-  const db = getDatabase(app);
-  const contentRef = ref(db, "blog/");
-  remove(ref(db, "blog/" + id));
-  navigate("/");
+  try {
+    const db = getDatabase(app);
+    const contentRef = ref(db, "blog/");
+    remove(ref(db, "blog/" + id));
+    navigate("/");
+    toastSuccessNotify("Blog is deleted");
+  } catch (error) {
+    toastWarnNotify(error.message);
+  }
 };
 
 // update process
 
 export const updateBlog = (blog) => {
-  const db = getDatabase(app);
-  const updates = {};
-  updates["blog/" + blog.id] = blog;
-  return update(ref(db), updates);
+  try {
+    const db = getDatabase(app);
+    const updates = {};
+    updates["blog/" + blog.id] = blog;
+    return update(ref(db), updates);
+  } catch (error) {
+    toastErrorNotify(error.message);
+  }
 };

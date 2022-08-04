@@ -4,6 +4,7 @@ import blok from "../assets/blok.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { updateBlog } from "../helpers/firebase";
+import { toastSuccessNotify } from "../helpers/toastNotify";
 
 const UpdateBlog = () => {
   const { currentBlog } = useContext(BlogContext);
@@ -26,6 +27,7 @@ const UpdateBlog = () => {
       return { ...item, [name]: value, currentUser: currentUser.email };
     });
     setBlog(updateBlog);
+    toastSuccessNotify("Blog is updated");
   };
 
   // console.log(blog);

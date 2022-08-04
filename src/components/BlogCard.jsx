@@ -7,6 +7,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { updateBlog } from "../helpers/firebase";
 import holder from "../assets/placeholder.png";
+import { toastWarnNotify } from "../helpers/toastNotify";
 
 const BlogCard = ({ blog }) => {
   // console.log(blog);
@@ -15,7 +16,9 @@ const BlogCard = ({ blog }) => {
   const navigate = useNavigate();
   const { content, imageUrl, title, id } = blog;
   const handleBlog = () => {
-    currentUser ? navigate(`details/${id}`) : navigate("/login");
+    currentUser
+      ? navigate(`details/${id}`)
+      : toastWarnNotify("Please Log in to see details");
   };
   const [like, setLike] = useState(false);
   const [number, setNumber] = useState(blog.likeNumber);

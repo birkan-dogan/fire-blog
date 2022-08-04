@@ -38,10 +38,7 @@ const Navbar = () => {
         <div>
           <Link to={"/"} className="navbar-brand">
             <div>
-              <h4
-                style={{ letterSpacing: ".5rem", marginRight: "4rem" }}
-                className="fire-blog"
-              >
+              <h4 style={{ letterSpacing: ".5rem" }} className="fire-blog">
                 Fire-Blog
               </h4>
             </div>
@@ -68,7 +65,7 @@ const Navbar = () => {
                   <ul className="dropdown-menu">
                     <li>
                       <Link className="dropdown-item" to={"/profile"}>
-                        {currentUser.displayName}
+                        {currentUser.displayName || "Profile"}
                       </Link>
                     </li>
                     <li>

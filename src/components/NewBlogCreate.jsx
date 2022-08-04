@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import { toastWarnNotify } from "../helpers/toastNotify";
 
 const NewBlogCreate = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const handleBlog = () => {
-    currentUser ? navigate("/newblog") : navigate("/login");
+    currentUser
+      ? navigate("/newblog")
+      : toastWarnNotify("Please Log in to write new blog");
   };
   return (
     <nav>
