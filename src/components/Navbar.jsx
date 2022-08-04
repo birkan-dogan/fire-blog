@@ -38,13 +38,16 @@ const Navbar = () => {
         <div>
           <Link to={"/"} className="navbar-brand">
             <div>
-              <h4 style={{ letterSpacing: ".5rem" }} className="fire-blog">
+              <h4
+                style={{ letterSpacing: ".5rem", marginLeft: "15px" }}
+                className="fire-blog"
+              >
                 Fire-Blog
               </h4>
             </div>
           </Link>
         </div>
-        <div>
+        <div style={{ width: "180px" }}>
           {currentUser ? (
             <div
               className="collapse navbar-collapse dropdown fw-bold text-dark"
