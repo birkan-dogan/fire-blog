@@ -8,6 +8,8 @@ const initialValues = {
   imageUrl: "",
   content: "",
   currentUser: "",
+  like: false,
+  likeNumber: 0,
 };
 
 const NewBlog = () => {
@@ -16,6 +18,7 @@ const NewBlog = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    // console.log(blog);
     e.preventDefault();
     const { name, value } = e.target;
     setBlog({

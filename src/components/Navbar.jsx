@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import img from "../assets/blogging.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { logOut } from "../helpers/firebase";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -10,61 +11,8 @@ const Navbar = () => {
   // console.log(currentUser);
   // console.log(currentUser.providerData[0].uid);
   return (
-    // <div>
-    //   <nav className="navbar navbar-expand-lg">
-    //     <div className="container-fluid ">
-    //       <Link to={"/"}>
-    //         <img
-    //           src={img}
-    //           alt=""
-    //           style={{ width: "3.5rem" }}
-    //           className="link-image"
-    //         />
-    //       </Link>
-    //       <Link to={"/"} className="navbar-brand text-white">
-    //         <div style={{ marginLeft: "10rem" }}>
-    //           <div className="empty-div"></div>
-    //           <h4 style={{ letterSpacing: ".5rem" }}>Fire-Blog</h4>
-    //           <div className="empty-div"></div>
-    //         </div>
-    //       </Link>
-    //       <div className="d-flex text-white align-items-center">
-    //         {currentUser ? (
-    //           <>
-    //             <h5 className="mb-0  text-capitalize">
-    //               <Link to={"/profile"} className="name-link">
-    //                 {currentUser.displayName}
-    //               </Link>
-    //             </h5>
-    //             <button
-    //               className="ms-2 btn btn-outline-light"
-    //               onClick={() => logOut()}
-    //             >
-    //               Log Out
-    //             </button>
-    //           </>
-    //         ) : (
-    //           <>
-    //             <button
-    //               className="ms-2 btn btn-outline-light"
-    //               onClick={() => navigate("/login")}
-    //             >
-    //               Log In
-    //             </button>
-    //             <button
-    //               className="ms-2 btn btn-outline-light"
-    //               onClick={() => navigate("/register")}
-    //             >
-    //               Register
-    //             </button>
-    //           </>
-    //         )}
-    //       </div>
-    //     </div>
-    //   </nav>
-    // </div>
     <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid d-flex ">
+      <div className="container-fluid d-flex justify-content-around">
         <div>
           <Link to={"/"}>
             <img
@@ -90,7 +38,10 @@ const Navbar = () => {
         <div>
           <Link to={"/"} className="navbar-brand">
             <div>
-              <h4 style={{ letterSpacing: ".5rem" }} className="fire-blog">
+              <h4
+                style={{ letterSpacing: ".5rem", marginRight: "4rem" }}
+                className="fire-blog"
+              >
                 Fire-Blog
               </h4>
             </div>
@@ -99,7 +50,7 @@ const Navbar = () => {
         <div>
           {currentUser ? (
             <div
-              className="collapse navbar-collapse dropdown"
+              className="collapse navbar-collapse dropdown fw-bold text-dark"
               id="navbarNavDropdown"
             >
               <ul className="navbar-nav">
@@ -110,17 +61,19 @@ const Navbar = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    {currentUser.displayName}
+                    <FaUserCircle
+                      style={{ transform: "scale(2)", marginRight: "1rem" }}
+                    />
                   </h1>
                   <ul className="dropdown-menu">
                     <li>
-                      <Link className="dropdown-item" to={"/newblog"}>
-                        New Blog
+                      <Link className="dropdown-item" to={"/profile"}>
+                        {currentUser.displayName}
                       </Link>
                     </li>
                     <li>
-                      <Link className="dropdown-item" to={"/profile"}>
-                        Profile
+                      <Link className="dropdown-item" to={"/newblog"}>
+                        New Blog
                       </Link>
                     </li>
                     <li>

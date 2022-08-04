@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { updateBlog } from "../helpers/firebase";
+import holder from "../assets/placeholder.png";
 
 const BlogCard = ({ blog }) => {
   // console.log(blog);
@@ -19,11 +20,11 @@ const BlogCard = ({ blog }) => {
   const [like, setLike] = useState(false);
   const [number, setNumber] = useState(blog.likeNumber);
   const handleLike = () => {
-    console.log(like);
-    console.log(blog);
+    // console.log(like);
+    // console.log(blog);
     like ? setNumber(number - 1) : setNumber(number + 1);
     setLike(!like);
-    console.log(like);
+    // console.log(like);
     updateBlog({ ...blog, likeNumber: number });
   };
   useEffect(() => {

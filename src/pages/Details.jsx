@@ -4,7 +4,6 @@ import loading from "../assets/loading.gif";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { DeleteBlog } from "../helpers/firebase";
-import UpdateBlog from "./UpdateBlog";
 
 const Details = () => {
   const [blog, setBlog] = useState();
@@ -33,7 +32,10 @@ const Details = () => {
           <h1>──── Details ────</h1>
           {blog?.map((item) => {
             return (
-              <div className="details-content d-flex" key={item.id}>
+              <div
+                className="details-content d-flex flex-wrap justify-content-center"
+                key={item.id}
+              >
                 <img src={item.imageUrl} alt={item.title} />
                 <div className="content-div">
                   <h3>{item.title.toUpperCase()}</h3>

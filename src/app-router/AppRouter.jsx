@@ -10,7 +10,7 @@ import NewBlog from "../pages/NewBlog";
 import Register from "../pages/Register";
 import UpdateBlog from "../pages/UpdateBlog";
 import PrivateRouter from "./PrivateRouter";
-import BlogContextProvider from "../contexts/BlogContext";
+import Footer from "../components/Footer";
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -35,6 +35,7 @@ const AppRouter = () => {
           <Route path="" element={<UpdateBlog />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
