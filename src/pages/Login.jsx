@@ -59,8 +59,13 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="link" onClick={forgotPassword}>
-            Forgot Password ?
+          <div className="d-flex">
+            <p className="link" onClick={forgotPassword}>
+              Forgot Password ?
+            </p>
+            <p className="link" onClick={() => navigate("/register")}>
+              Don't have an account?
+            </p>
           </div>
           <input
             type="submit"
