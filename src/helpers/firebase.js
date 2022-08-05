@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   GithubAuthProvider,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import {
   getDatabase,
@@ -118,6 +119,18 @@ export const signUpWithGithub = (navigate) => {
     })
     .catch((error) => {
       toastErrorNotify(error.message);
+    });
+};
+
+export const resetPassword = (email) => {
+  const auth = getAuth();
+
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      toastSuccessNotify("Password reset email sent!");
+    })
+    .catch((error) => {
+      toastErrorNotify("Please enter your exist email first");
     });
 };
 
