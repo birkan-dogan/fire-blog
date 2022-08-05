@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { AiOutlineGoogle } from "react-icons/ai";
+import { AiOutlineGoogle, AiFillGithub } from "react-icons/ai";
+
 import { useNavigate } from "react-router-dom";
-import { signIn, signUpProvider } from "../helpers/firebase";
+import { signIn, signUpProvider, signUpWithGithub } from "../helpers/firebase";
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -12,6 +13,9 @@ const Login = () => {
   };
   const handleProvider = () => {
     signUpProvider(navigate);
+  };
+  const handleGithub = () => {
+    signUpWithGithub(navigate);
   };
   return (
     <div className="d-flex justify-content-center">
@@ -62,6 +66,15 @@ const Login = () => {
             style={{ marginRight: "1rem", transform: "scale(1.7)" }}
           />
           Continue with Google
+        </button>
+        <button
+          className="btn text-white bg-black form-control"
+          onClick={handleGithub}
+        >
+          <AiFillGithub
+            style={{ marginRight: "1rem", transform: "scale(1.7)" }}
+          />
+          Continue with GitHub
         </button>
       </div>
     </div>

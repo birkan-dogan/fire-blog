@@ -8,6 +8,7 @@ import {
   updateProfile,
   GoogleAuthProvider,
   signInWithPopup,
+  GithubAuthProvider,
 } from "firebase/auth";
 import {
   getDatabase,
@@ -102,6 +103,20 @@ export const signUpProvider = (navigate) => {
     })
     .catch((error) => {
       // console.log(error);
+      toastErrorNotify(error.message);
+    });
+};
+
+export const signUpWithGithub = (navigate) => {
+  const provider = new GithubAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GithubAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      navigate("/");
+    })
+    .catch((error) => {
       toastErrorNotify(error.message);
     });
 };
