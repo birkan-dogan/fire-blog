@@ -27,7 +27,6 @@ const UpdateBlog = () => {
       return { ...item, [name]: value, currentUser: currentUser.email };
     });
     setBlog(updateBlog);
-    toastSuccessNotify("Blog is updated");
   };
 
   // console.log(blog);
@@ -37,6 +36,7 @@ const UpdateBlog = () => {
     // console.log(blog);
     updateBlog(blog[0]);
     navigate("/");
+    toastSuccessNotify("Blog is updated");
   };
   return (
     <div>

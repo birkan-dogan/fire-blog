@@ -14,7 +14,7 @@ const Register = () => {
     createUser(email, password, navigate, displayName);
   };
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center flex-wrap">
       <div className="form-image d-none d-md-block">
         <img src={"https://picsum.photos/800/800"} alt="fire-blog" />
       </div>
