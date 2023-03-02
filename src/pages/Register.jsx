@@ -22,6 +22,7 @@ const Register = () => {
         setFirstName={setFirstName}
         setEmail={setEmail}
         setPassword={setPassword}
+        navigate={navigate}
       />
     </>
   );

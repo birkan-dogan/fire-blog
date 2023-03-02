@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import img2 from "../../assets/rocket.svg";
 import { AiOutlineUser, AiOutlineLock, AiOutlineMail } from "react-icons/ai";
 import "../register/register.css";
@@ -8,6 +7,7 @@ const RegisterComponent = ({
   setFirstName,
   setEmail,
   setPassword,
+  navigate,
 }) => {
   return (
     <div className="register">
@@ -61,10 +61,7 @@ const RegisterComponent = ({
           </div>
         </form>
         <div className="one-of-us">
-          <h2>One of Us ?</h2>
-          <button>
-            <Link to={"/login"}>Log In</Link>
-          </button>
+          <h2 onClick={() => navigate("/login")}>Already have an account ?</h2>
         </div>
       </div>
     </div>
