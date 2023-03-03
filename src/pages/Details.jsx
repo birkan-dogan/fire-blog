@@ -4,6 +4,11 @@ import loading from "../assets/loading.gif";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
 import { DeleteBlog } from "../helpers/firebase";
+import "../components/details/details.css";
+import { AiOutlineEdit } from "react-icons/ai";
+import { MdDeleteOutline } from "react-icons/md";
+import { FaUserCircle } from "react-icons/fa";
+import Menu from "../components/details/Menu";
 
 const Details = () => {
   const [blog, setBlog] = useState();
@@ -22,51 +27,53 @@ const Details = () => {
   // console.log(blog);
   // console.log(blog[0]?.currentUser);
   return (
-    <div>
+    <div className="detail-container">
       {isLoading ? (
         <div className="spinner">
           <img src={loading} alt="loading" />
         </div>
       ) : (
-        <div className="details">
-          <h1>──── Details ────</h1>
-          {blog?.map((item) => {
-            return (
-              <div
-                className="details-content d-flex flex-wrap justify-content-center"
-                key={item.id}
-              >
-                <img src={item.imageUrl} alt={item.title} />
-                <div className="content-div">
-                  <h3>{item.title.toUpperCase()}</h3>
-                  <p>{item.content}</p>
+        <div className="single">
+          <div className="content">
+            {blog?.map((item) => {
+              return (
+                <div className="content" key={item.id}>
+                  <img src={item.imageUrl} alt={item.title} />
+                  <div className="user">
+                    <FaUserCircle className="img" />
+
+                    <div className="info">
+                      <span>{item.currentUser}</span>
+                      <p>Posted 2 days ago</p>
+                    </div>
+                    <div className="edit">
+                      {item.currentUser === currentUser.email && (
+                        <div className="edit-delete">
+                          <span
+                            className="outline-edit"
+                            onClick={() => navigate(`/updateBlog/${id}`)}
+                          >
+                            <AiOutlineEdit />
+                          </span>
+                          <span onClick={() => DeleteBlog(item.id, navigate)}>
+                            <MdDeleteOutline />
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="content-div">
+                    <h1>{item.title.toUpperCase()}</h1>
+                    <p>{item.content}</p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <div className="menu">
+            <Menu posts={currentBlog.slice(0, 5)} id={id} setBlog={setBlog} />
+          </div>
         </div>
-      )}
-      {blog?.map(
-        (item) =>
-          item.currentUser === currentUser.email && (
-            <div
-              className="d-flex mb-5 gap-5 justify-content-center details-button"
-              key={item.id}
-            >
-              <button
-                className="btn text-white"
-                onClick={() => navigate(`/updateBlog/${id}`)}
-              >
-                Update Blog
-              </button>
-              <button
-                className="btn bg-danger text-white delete"
-                onClick={() => DeleteBlog(item.id, navigate)}
-              >
-                Delete Blog
-              </button>
-            </div>
-          )
       )}
     </div>
   );
