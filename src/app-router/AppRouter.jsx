@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar/Navbar";
 import About from "../pages/About";
 import Dashboard from "../pages/Dashboard";
 import Details from "../pages/Details";
@@ -10,7 +10,7 @@ import NewBlog from "../pages/NewBlog";
 import Register from "../pages/Register";
 import UpdateBlog from "../pages/UpdateBlog";
 import PrivateRouter from "./PrivateRouter";
-import Footer from "../components/Footer";
+import Footer from "../components/footer/Footer";
 const AppRouter = () => {
   return (
     <BrowserRouter>

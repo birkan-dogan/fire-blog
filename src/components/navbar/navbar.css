@@ -1,0 +1,90 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar .container {
+  width: 1024px;
+  /* border: 1px solid red; */
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .container .logo img {
+  width: 120px;
+}
+
+.container .links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container .links .link {
+  color: inherit;
+  text-decoration: none;
+  transition: all 1s ease-out;
+}
+.container .links .link:hover {
+  text-decoration: underline wavy;
+  text-underline-offset: 15px;
+}
+
+.container .links h6 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.container .links span {
+  cursor: pointer;
+}
+
+.container .links .write {
+  background-color: var(--lightGreen);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  transition: all 0.5s;
+  border: 1px solid white;
+}
+
+.container .links .write:hover {
+  color: var(--buttonColor);
+  background-color: #f3f3f3;
+  border: 1px solid var(--buttonColor);
+}
+
+.container .links .user-circle {
+  transform: scale(2.2);
+  color: rgb(90, 90, 90);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  transition: all 1s;
+}
+.container .links .user-circle:hover {
+  color: #222222;
+}
+
+.container .links .log-out {
+  background-color: #ff6584;
+  color: #f3f3f3;
+  width: 75px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+.container .links .log-out:hover {
+  color: #ff6584;
+  background-color: white;
+}

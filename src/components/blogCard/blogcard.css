@@ -1,0 +1,138 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.posts {
+  padding: 0px 20px;
+  width: 1024px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+}
+
+.post {
+  display: flex;
+  gap: 100px;
+  cursor: pointer;
+}
+
+.post:nth-child(2n + 1) {
+  flex-direction: row-reverse;
+}
+
+.post .img {
+  flex: 2;
+  position: relative;
+}
+
+.img::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--lightGreen);
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  z-index: -1;
+}
+
+.post .img img {
+  width: 100%;
+  min-width: 375px;
+  min-height: 400px;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.post .content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post .content h1 {
+  font-size: 48px;
+  color: #000e2a;
+}
+
+.post .content p {
+  font-size: 18px;
+  text-align: start;
+}
+
+.post .content .icon {
+  color: var(--buttonColor);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  margin: 20px 0px;
+  margin-left: 5px;
+}
+
+.post .content .to-see {
+  width: max-content;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: white;
+  border: 1px solid teal;
+  border-radius: 10px;
+  color: var(--buttonColor);
+}
+
+.post .content .to-see:hover {
+  border: 1px solid white;
+  background-color: var(--lightGreen);
+  color: black;
+}
+
+@media only screen and (max-width: 900px) {
+  .posts {
+    padding: 0px 20px;
+    /* width: 900px; */
+  }
+  .post {
+    align-items: center;
+  }
+  .post .img img {
+    min-width: 100px;
+    min-height: 100px;
+    width: 250px;
+    height: 210px;
+    object-fit: cover;
+  }
+
+  .img::after {
+    content: "";
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 718px) {
+  .posts {
+    gap: 80px;
+  }
+  .post {
+    flex-direction: column;
+    position: relative;
+    gap: 20px;
+  }
+
+  .post:nth-child(2n + 1) {
+    flex-direction: column;
+  }
+
+  .post .img img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
