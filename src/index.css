@@ -6,10 +6,17 @@
   padding: 0;
   margin: 0;
 }
+
+:root {
+  --lightGreen: #b9e7e7;
+  --buttonColor: teal;
+}
+
 body {
   font-family: "Poppins", "sans-serif";
   margin: 0;
 }
+/*
 .navbar {
   background-color: #046582 !important;
 }
@@ -294,11 +301,11 @@ main {
   .details-content p {
     width: 200px;
     padding: 0rem;
-    /* margin: ; */
+    margin: ;
     text-indent: 1rem;
     /* text-align: justify; */
-  }
-  .details-content h3 {
+/* } */
+/* .details-content h3 {
     margin-top: 0.5rem;
     color: crimson;
     font-size: 1.5rem;
@@ -307,7 +314,8 @@ main {
   .navbar-h1 {
     margin-left: 1rem;
   }
-}
+} */
+/*
 @media (max-width: 750px) {
   .fire-blog {
     display: none;
@@ -315,4 +323,10 @@ main {
   .dashboard {
     font-size: 1.5rem;
   }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

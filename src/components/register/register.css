@@ -66,7 +66,7 @@
 }
 
 .register-form .form-title {
-  color: #000e2a;
+  color: var(--buttonColor);
   font-size: 48px;
 }
 
@@ -78,7 +78,8 @@
 }
 .btn {
   padding: 15px 50px;
-  background-color: #b9e7e7;
+  background-color: var(--buttonColor);
+  color: #f3f3f3;
   border: none;
   border-radius: 15px;
   font-weight: 600;
@@ -93,7 +94,6 @@
 
 .one-of-us h2 {
   margin-top: 25px;
-  /* border: 1px solid red; */
   width: 375px;
   letter-spacing: 1px;
   cursor: pointer;
