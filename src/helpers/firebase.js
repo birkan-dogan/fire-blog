@@ -137,6 +137,11 @@ export const resetPassword = (email) => {
 // crud operations for creating, reading, updating and deleting a blog content
 
 // create process
+const getText = function (html) {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+
+  return doc.body.textContent;
+};
 
 export const AddBlog = (blog, navigate) => {
   const db = getDatabase(app);
@@ -146,7 +151,7 @@ export const AddBlog = (blog, navigate) => {
     set(newContentRef, {
       title: blog.title,
       imageUrl: blog.imageUrl,
-      content: blog.content,
+      content: getText(blog.content),
       currentUser: blog.currentUser,
       like: false,
       likeNumber: 0,
