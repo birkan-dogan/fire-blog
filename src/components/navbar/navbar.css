@@ -19,7 +19,7 @@
 .container .links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .container .links .link {
@@ -115,7 +115,7 @@
   }
 }
 
-@media only screen and (max-width: 765px) {
+@media only screen and (max-width: 835px) {
   .container .links {
     display: none;
   }

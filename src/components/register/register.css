@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   max-width: 100vw;
-  min-height: 100vh;
+  min-height: 110vh;
   position: relative;
   padding: 20px;
 }
@@ -23,14 +23,17 @@
 }
 
 .form-image {
-  width: 600px;
+  width: 500px;
   font-size: 1.5rem;
   color: #000e2a;
   line-height: 45px;
 }
 
 .form-image img {
-  width: 550px;
+  width: 500px;
+  position: relative;
+  bottom: 130px;
+  left: 50px;
 }
 
 .register-form {
@@ -40,6 +43,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 250px;
 }
 
 .register-form .input-box {
@@ -94,6 +98,7 @@
 
 .one-of-us h2 {
   margin-top: 25px;
+  margin-left: 25px;
   width: 375px;
   letter-spacing: 1px;
   cursor: pointer;
@@ -125,18 +130,46 @@
     margin-top: 50px;
     gap: 50px;
   }
+  .register-form {
+    margin-bottom: 10px;
+  }
+  .form-image img {
+    position: static;
+  }
 }
 
 @media only screen and (max-width: 767px) {
   .register::before {
     content: "";
     position: absolute;
-    right: 50px;
-    top: 750px;
-    min-width: 400px;
-    min-height: 400px;
+    right: 0px;
+    top: 950px;
+    min-width: 300px;
+    min-height: 200px;
     background: #b9e7e7;
     z-index: -1;
-    padding: 100px;
+  }
+
+  .form-image {
+    width: 300px;
+    margin-top: 50px;
+  }
+
+  .form-image img {
+    width: 300px;
+  }
+
+  .register-form {
+    width: 300px;
+  }
+
+  .register-form .input-box {
+    padding: 0px 10px 5px 10px;
+  }
+
+  .register-form .input-box input {
+    width: 300px;
+    padding: 3px;
+    font-size: 16px;
   }
 }
