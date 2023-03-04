@@ -1,14 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/blogging.svg";
 import { AuthContext } from "../../contexts/AuthContext";
 import { logOut } from "../../helpers/firebase";
 import { FaUserCircle } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
 import "./navbar.css";
+import ResponsiveNavbar from "../responsive/ResponsiveNavbar";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
+  const [responsive, setResponsive] = useState(false);
+
+  const handleHamburger = function () {
+    setResponsive(true);
+  };
 
   return (
     <nav className="navbar">
@@ -60,12 +67,29 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <span onClick={() => navigate("/login")}>Log In</span>
-              <span onClick={() => navigate("/register")}>Register</span>
+              <span className="log-out" onClick={() => navigate("/login")}>
+                Log In
+              </span>
+              <span
+                className="log-out register-button"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </span>
             </>
           )}
         </div>
+        <div className="hamburger-button">
+          <GiHamburgerMenu onClick={handleHamburger} />
+        </div>
       </div>
+      {responsive && (
+        <ResponsiveNavbar
+          currentUser={currentUser}
+          logOut={logOut}
+          setResponsive={setResponsive}
+        />
+      )}
     </nav>
   );
 };

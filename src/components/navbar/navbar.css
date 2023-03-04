@@ -1,11 +1,11 @@
 .navbar {
   display: flex;
   justify-content: center;
+  transition: all 0.8s;
 }
 
 .navbar .container {
   width: 1024px;
-  /* border: 1px solid red; */
   padding: 10px 0px;
   display: flex;
   justify-content: space-between;
@@ -87,4 +87,40 @@
 .container .links .log-out:hover {
   color: #ff6584;
   background-color: white;
+}
+
+.container .links .register-button {
+  background-color: var(--buttonColor);
+}
+
+.container .links .register-button:hover {
+  color: var(--buttonColor);
+}
+
+.hamburger-button {
+  display: none;
+  transform: scale(2.5);
+  color: #333;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.hamburger-button:hover {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 1030px) {
+  .navbar .container {
+    padding: 10px 20px;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .container .links {
+    display: none;
+  }
+
+  .hamburger-button {
+    display: inline-block;
+  }
 }
