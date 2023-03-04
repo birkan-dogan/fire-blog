@@ -36,11 +36,9 @@ const NewBlog = () => {
   };
 
   const handleQuillEdit = (value) => {
-    setBlog((blog) => {
-      return {
-        ...blog,
-        content: value,
-      };
+    setBlog({
+      ...blog,
+      content: value,
     });
   };
 

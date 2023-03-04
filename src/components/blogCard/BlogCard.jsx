@@ -31,6 +31,8 @@ const BlogCard = ({ blog }) => {
     handleLike();
   }, []);
 
+  const shortContent = content.slice(0, 300) + "...";
+
   return (
     <article className="post" onClick={handleBlog}>
       <div className="img">
@@ -39,7 +41,7 @@ const BlogCard = ({ blog }) => {
 
       <div className="content">
         <h1>{title.toUpperCase()}</h1>
-        <p>{content.slice(0, 300) + "..."}</p>
+        <p dangerouslySetInnerHTML={{ __html: shortContent }}></p>
 
         <div className="icon">
           <FaUserEdit />

@@ -64,7 +64,8 @@ const Details = () => {
                   </div>
                   <div className="content-div">
                     <h1>{item.title.toUpperCase()}</h1>
-                    <p>{item.content}</p>
+                    {/* <p>{item.content}</p> */}
+                    <p dangerouslySetInnerHTML={{ __html: item.content }}></p>
                   </div>
                 </div>
               );
