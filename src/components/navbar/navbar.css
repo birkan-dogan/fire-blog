@@ -1,11 +1,11 @@
 .navbar {
   display: flex;
   justify-content: center;
+  transition: all 0.8s;
 }
 
 .navbar .container {
   width: 1024px;
-  /* border: 1px solid red; */
   padding: 10px 0px;
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@
 .container .links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .container .links .link {
@@ -41,8 +41,34 @@
   cursor: pointer;
 }
 
+/* this will be shown in max-width:875px */
+.container .write {
+  cursor: pointer;
+  background-color: var(--lightGreen);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 300;
+  transition: all 0.5s;
+  border: 1px solid white;
+  display: none;
+}
+
+.container .write:hover {
+  color: var(--buttonColor);
+  background-color: #f3f3f3;
+  border: 1px solid var(--buttonColor);
+}
+
+/* the code below is for write box */
+
 .container .links .write {
   background-color: var(--lightGreen);
+  font-size: 16px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -87,4 +113,67 @@
 .container .links .log-out:hover {
   color: #ff6584;
   background-color: white;
+}
+
+.container .links .register-button {
+  background-color: var(--buttonColor);
+}
+
+.container .links .register-button:hover {
+  color: var(--buttonColor);
+}
+
+.hamburger-button {
+  display: none;
+  transform: scale(2.5);
+  color: #333;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.hamburger-button:hover {
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 1030px) {
+  .navbar .container {
+    padding: 10px 20px;
+  }
+}
+
+@media only screen and (max-width: 875px) {
+  .container .links {
+    display: none;
+  }
+
+  .hamburger-button {
+    margin-right: 60px;
+    display: inline-block;
+  }
+  .container .write {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .hamburger-button {
+    margin-right: 5px;
+  }
+
+  .container .write {
+    margin-right: 90px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .navbar .container .logo img {
+    width: 90px;
+  }
+
+  .container .write {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    margin-right: 80px;
+  }
 }

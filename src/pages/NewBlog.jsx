@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import blok from "../assets/blok.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { AddBlog } from "../helpers/firebase";
+import "../components/newBlog/newBlog.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+
 const initialValues = {
   title: "",
   imageUrl: "",
@@ -18,8 +22,6 @@ const NewBlog = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    // console.log(blog);
-    e.preventDefault();
     const { name, value } = e.target;
     setBlog({
       ...blog,
@@ -33,57 +35,74 @@ const NewBlog = () => {
     AddBlog(blog, navigate);
   };
 
+  const handleQuillEdit = (value) => {
+    setBlog({
+      ...blog,
+      content: value,
+    });
+  };
+
   return (
-    <div className="d-flex justify-content-center flex-column align-items-center">
-      <div>
-        <img src={blok} alt="newBlog" className="new-img" />
-        <div className="new-container-big">
-          <h1 className="new-blog text-center">── New Blog ──</h1>
-        </div>
-      </div>
-      <form className="form-div" onSubmit={handleSubmit}>
-        <div className="form">
-          <label htmlFor="title">Title:</label>
-          <br />
+    <div className="add">
+      <div className="new-blog">
+        <form onSubmit={handleSubmit} className="content">
           <input
             type="text"
+            placeholder="Title"
             name="title"
-            id="title"
-            placeholder="Title:"
             value={blog.title}
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="form">
-          <label htmlFor="image">Image URL:</label>
-          <br />
           <input
             type="url"
+            placeholder="Image Url"
             name="imageUrl"
-            id="image"
-            placeholder="Image URL:"
             value={blog.imageUrl}
             onChange={handleChange}
             required
           />
+          <div className="editorContainer">
+            <ReactQuill
+              theme="snow"
+              value={blog.content}
+              onChange={handleQuillEdit}
+              className="editor"
+              required
+            />
+          </div>
+          <div className="buttons">
+            <button>Save as a draft</button>
+            <button>Publish</button>
+          </div>
+        </form>
+
+        <div className="menu">
+          <div className="item">
+            <h1>Publish</h1>
+            <span>
+              <b>Status: </b> Draft
+            </span>
+            <span>
+              <b>Visibility: </b> Public
+            </span>
+          </div>
+
+          <div className="item">
+            <h1>Category</h1>
+            {["art", "science", "technology", "design", "movie", "sports"].map(
+              (item, index) => (
+                <div className="cat" key={index}>
+                  <input type="radio" name="cat" value={item} id={item} />
+                  <label htmlFor={item}>
+                    {item[0].toUpperCase() + item.slice(1, item.length)}
+                  </label>
+                </div>
+              )
+            )}
+          </div>
         </div>
-        <div className="form">
-          <label htmlFor="content">Content:</label>
-          <br />
-          <textarea
-            id="content"
-            name="content"
-            rows="5"
-            cols="50"
-            placeholder="Content"
-            value={blog.content}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-        <button className="btn text-white buton">Create Blog</button>
-      </form>
+      </div>
     </div>
   );
 };
