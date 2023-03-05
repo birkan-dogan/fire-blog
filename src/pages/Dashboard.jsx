@@ -27,9 +27,6 @@ const Dashboard = () => {
         ) : (
           currentBlog?.map((blog) => <BlogCard blog={blog} key={blog.id} />)
         )}
-        {/* <span className="write" onClick={() => navigate("/write")}>
-          Write
-        </span> */}
       </main>
     </div>
   );
