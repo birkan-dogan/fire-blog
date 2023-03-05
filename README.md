@@ -1,52 +1,48 @@
-## Description
+# Blog App 🖊
 
-Project aims to create a FireBlog App. Users can add a new blog, update this blog and also delete blog if they have loged in. Also they can like each other blogs. We have great blog-app for reading and writing blogs about IT world.
+## Table of contents
 
-## Project Skeleton
+- [Summary](#summary)
+- [Screenshot](#screenshot)
+- [Link](#links)
+- [Built with](#built-with)
+- [Utility Links](#utility-links)
 
-```
-|
-|----readme.md
-SOLUTION
-├── public
-│     └── index.html
-├── src
-│    ├── app-router
-│    │       ├── AppRouter.js
-│    │       └── PrivateRouter.js
-│    ├── components
-│    │       ├── BlogCard.js
-│    │       ├── BlogForm.js
-│    │       └── Navbar.js
-│    ├── contexts
-│    │       ├── AuthContext.js
-│    │       └── BlogContext.js
-│    ├── helpers
-│    │       ├── firebase.js
-│    │       └── toastNotify.js
-│    ├── pages
-│    │       ├── About.js
-│    │       ├── Dashboard.js
-│    │       ├── Details.js
-│    │       ├── Login.js
-│    │       ├── NewBlog.js
-│    │       ├── Profile.js
-│    │       ├── Register.js
-│    │       └── UpdateBlog.js
-│    ├── assets.js
-│    │       └── [images]
-│    ├── App.js
-│    ├── App.css
-│    ├── index.js
-│    └── index.css
-├── .env
-├── package.json
-```
+##
 
-## Outcome
+> In this project, I have worked with HTML, CSS, JavaScript, React.js and Firebase to create this good-looking fully-responsive page 🎯.  
+> I've used the advantages of React.js to manipulate the DOM efficiently 🎢.  
+> I like working with Firebase to handle database tables for making CRUD operations, it was easy to manage 🤝.  
+> Also love to use firebase-auth for authentication process. I am thankful to Firebase for providing us the social media auth, I really enjoy to use Google and Github auth in my project 🛡.  
+> In CSS process, I've used pure-css and this made my css-skills powerful 🌌.  
+> In creating and updating post section, I had a chance to work with **react-quill** package and it was really life-saver for editing text blocks 🤖.
 
-![Project 007 Snapshot](fireblog.gif)
+## Links
 
-## Objective
+<a href="https://blogonfire.vercel.app/">Live Version of the project</a>
 
-Building a Register FireBlog App by using ReactJS, Firebase-realtime-database, Firebase-authentication
+<hr>
+
+## Screenshot
+
+<p align="center">
+<a href="https://blogonfire.vercel.app/"><img  src="./src/assets/blogApp.png" alt="blog app"></a>
+</p>
+
+<hr>
+
+## Built with
+
+- HTML
+- CSS
+- JavaScript
+- React.js
+
+## Utility Links
+
+> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
+> [React.js](https://beta.reactjs.org/)  
+> [React Quill](https://github.com/zenoamaro/react-quill)  
+> [Using dangerouslySetInnerHTML in a React application](https://blog.logrocket.com/using-dangerouslysetinnerhtml-in-a-react-application/)
+
+<center> Keep Building 🚀</center>
