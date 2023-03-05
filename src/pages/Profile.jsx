@@ -4,11 +4,15 @@ import { FaUserCircle } from "react-icons/fa";
 const Profile = () => {
   const { currentUser } = useContext(AuthContext);
   return (
-    <div className="profile-div">
-      <h1 className="dashboard">──── Profile ────</h1>
-      <div className="profile">
+    <div className="profile">
+      <div className="dashboard">
+        <div></div>
+        <h3>Profile</h3>
+        <div></div>
+      </div>
+      <div className="profile-information">
         <FaUserCircle className="profile-icon" />
-        <h1>{currentUser.displayName}</h1>
+        <h1>{currentUser.displayName.toUpperCase()}</h1>
         <p>{currentUser.email}</p>
       </div>
     </div>

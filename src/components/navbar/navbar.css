@@ -111,8 +111,9 @@
   transition: all 0.5s;
 }
 .container .links .log-out:hover {
-  color: #ff6584;
+  color: var(--pink);
   background-color: white;
+  border: 1px solid var(--pink);
 }
 
 .container .links .register-button {

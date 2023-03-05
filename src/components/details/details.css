@@ -132,7 +132,6 @@
 @media only screen and (max-width: 1035px) {
   .detail-container {
     padding: 0 20px;
-    border: 1px solid red;
   }
 
   .single .content img {
@@ -149,13 +148,19 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-  /* .single .menu .post {
-  } */
+  .single .menu {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 
   .single .menu .post img {
     width: 250px;
     height: 200px;
     object-fit: cover;
     border-radius: 20px;
+  }
+  .single .content img {
+    width: 350px;
   }
 }

@@ -62,9 +62,11 @@
   color: #000e2a;
 }
 
-.post .content p {
+.post .content > p {
   font-size: 18px;
   text-align: start;
+  height: 200px;
+  overflow-y: hidden;
 }
 
 .post .content .icon {
