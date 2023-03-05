@@ -3,7 +3,7 @@
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  min-height: 50vh;
 }
 
 .add .new-blog {
@@ -43,7 +43,6 @@
 }
 
 .add .new-blog .menu .item {
-  border: 1px solid lightgray;
   padding: 10px;
   flex: 1;
   display: flex;
@@ -51,6 +50,10 @@
   gap: 7px;
   font-size: 12px;
   color: #555;
+}
+
+.add .new-blog .menu .item:last-child {
+  border: 1px solid lightgray;
 }
 
 .add .new-blog .menu .item h1 {
@@ -88,4 +91,22 @@
   align-items: center;
   gap: 2px;
   color: var(--buttonColor);
+}
+
+@media only screen and (max-width: 1030px) {
+  .add .new-blog {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (max-width: 585px) {
+  .add .new-blog {
+    flex-direction: column-reverse;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .add .new-blog {
+    width: 280px;
+  }
 }

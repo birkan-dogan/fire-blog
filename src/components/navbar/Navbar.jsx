@@ -25,6 +25,9 @@ const Navbar = () => {
             <img src={Logo} alt="" className="navbar-brand link-image" />
           </Link>
         </div>
+        <span className="write" onClick={() => navigate("/write")}>
+          Write
+        </span>
         <div className="links">
           <Link to={`/?cat=art`} className="link">
             <h6>ART</h6>

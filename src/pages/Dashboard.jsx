@@ -6,9 +6,11 @@ import BlogCard from "../components/blogCard/BlogCard";
 import { useContext } from "react";
 import { BlogContext } from "../contexts/BlogContext";
 import "../components/blogCard/blogcard.css";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   // const { isLoading, blogList } = useFetch();
+  const navigate = useNavigate();
   const { currentBlog, isLoading } = useContext(BlogContext);
   return (
     <div className="home">
@@ -25,6 +27,9 @@ const Dashboard = () => {
         ) : (
           currentBlog?.map((blog) => <BlogCard blog={blog} key={blog.id} />)
         )}
+        {/* <span className="write" onClick={() => navigate("/write")}>
+          Write
+        </span> */}
       </main>
     </div>
   );
