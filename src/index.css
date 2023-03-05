@@ -46,6 +46,16 @@ body {
   word-spacing: 15px;
   letter-spacing: 5px;
   font-size: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile .dashboard div {
+  width: 250px;
+  height: 5px;
+  background-color: #333;
 }
 
 .profile .profile-information .profile-icon {
